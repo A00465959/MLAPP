@@ -3,7 +3,7 @@ from joblib import load
 
 st.title("Iris Flower Species Predictor")
 st.write("-----------------------------------")
-LABELS = ['setosa', 'versicolor', 'virginica']
+LABELS = ['Setosa', 'Versicolor', 'Virginica']
 
 clf = load("DT.joblib")
 
@@ -17,7 +17,7 @@ pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 
 
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
-prediction = str(LABELS[prediction[0]]).upper()
+prediction = LABELS[prediction[0]]
 
 st.write("The Species of Iris Flower that has been identified is:" + prediction) 
 
