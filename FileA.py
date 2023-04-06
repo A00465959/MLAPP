@@ -21,6 +21,7 @@ pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
 prediction = LABELS[prediction[0]]
 
+iris = load_iris()
 label_index = LABELS.index(prediction) 
 images = iris.images[iris.target == label_index]
 
