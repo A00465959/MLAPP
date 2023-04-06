@@ -1,13 +1,7 @@
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn import tree
-
-
 import streamlit as st
 from joblib import load
 
-st.title("Deploying the model")
+st.title("Iris Flower Species Predictor")
 LABELS = ['setosa', 'versicolor', 'virginica']
 
 clf = load("DT.joblib")
@@ -22,5 +16,14 @@ pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 
 
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
+prediction = str(LABELS[prediction[0]]).upper()
+st.write("The Species of Iris Flower that has been identified is:" + prediction)
 
-st.write(LABELS[prediction[0]])
+
+prediction_list = []
+prediction_list.append(prediction)
+st.write("Predicton History")
+st.write("------------------")
+for index, prediction in prediction_list:
+	st.write((index+1)+". " + prediction)
+		
