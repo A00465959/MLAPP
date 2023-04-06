@@ -1,7 +1,5 @@
 import streamlit as st
 from joblib import load
-from skimage import io
-from sklearn.datasets import load_iris
 from PIL import Image
 
 
@@ -27,12 +25,19 @@ prediction = LABELS[prediction[0]]
 setosa= Image.open('setosa.png')
 versicolor= Image.open('versicolor.png')
 virginica = Image.open('virginica.png')
+no_image = Image.open('no_image.png')
 
 
 
 if st.button("Click Here to Classify"):
-	st.write("The Species of Iris Flower that has been identified is:") 
-	st.write(prediction)
-	st.image(setosa) if prediction == 0 else st.image(versicolor)  if prediction == 1 else st.image(virginica) 
-	st.write("-----------------------------------")
-		
+    st.write("The Species of Iris Flower that has been identified is:") 
+    st.write(prediction)
+    if prediction == 'Setosa':
+        st.image(setosa)
+    elif prediction == 'Versicolor':
+        st.image(versicolor)
+    elif prediction == 'Virginica':
+        st.image(virginica)
+    else:
+        st.image(no_image)
+    st.write("-----------------------------------")
