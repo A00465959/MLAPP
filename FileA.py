@@ -16,14 +16,11 @@ pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 
 
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
-prediction = str(LABELS[prediction[0]]).upper()
-st.write("The Species of Iris Flower that has been identified is:" + prediction)
 
+st.write("The Species of Iris Flower that has been identified is:" + str(LABELS[prediction[0]]).upper())
 
-prediction_list = []
-prediction_list.append(prediction)
 st.write("Predicton History")
 st.write("------------------")
-for index, prediction in enumerate(prediction_list):
+for index, prediction in enumerate(prediction):
 	st.write(str((index))+". " + prediction)
 		
