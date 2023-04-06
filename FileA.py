@@ -12,7 +12,7 @@ LABELS = ['Setosa', 'Versicolor', 'Virginica']
 clf = load("DT.joblib")
 
 st.write("Please Enter The Below Details:")
-st.write("-----------------------------------")
+st.write("\n\n")
 
 
 sp_l = st.slider('SEPAL LENGTH (in cm):', min_value=0, max_value=10)
