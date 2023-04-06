@@ -24,7 +24,7 @@ prediction = LABELS[prediction[0]]
 iris = load_iris()
 # label_index = LABELS.index(prediction) 
 # images = iris.images[iris.target == label_index]
-
+LABELS = ['Setosa', 'Versicolor', 'Virginica']
 label_index = LABELS.index('Setosa')
 images = iris.images[iris.target == label_index]
 
