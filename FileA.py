@@ -22,8 +22,12 @@ prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
 prediction = LABELS[prediction[0]]
 
 iris = load_iris()
-label_index = LABELS.index(prediction) 
+# label_index = LABELS.index(prediction) 
+# images = iris.images[iris.target == label_index]
+
+label_index = LABELS.index('Setosa')
 images = iris.images[iris.target == label_index]
+
 
 st.write("The Species of Iris Flower that has been identified is:") 
 st.write(prediction)
