@@ -4,25 +4,23 @@ from sklearn.metrics import accuracy_score
 from sklearn import tree
 
 
-data = load_iris()
+import streamlit as st
+from joblib import load
+
+st.title("Deploying the model")
+LABELS = ['setosa', 'versicolor', 'virginica']
+
+clf = load("DT.joblib")
+
+sp_l = st.slider('sepal length (cm)', min_value=0, max_value=10)
+
+sp_w = st.slider('sepal width (cm)', min_value=0, max_value=10)
+
+pe_l = st.slider('petal length (cm)', min_value=0, max_value=10)
+
+pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 
 
-x= data['data']
-y= data['target']
+prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
 
-
-train_x, test_x, train_y, test_y = train_test_split(x,y,test_size=0,random_state=0)
-
-clf = tree.DecisionTreeClassifier()
-clf.fit(train_x,train_y)
-
-pred_y = clf.predict([test_x])
-
-
-
-accuracy = accuracy_score(test_y, pred_y)
-print(accuracy)
-pred_y_train = clf.predict(train_x)
-train_accuracy =  accuracy_score(train_y, pred_y_train)
-
-print(data['target_names'][train_y])
+st.write(LABELS[prediction[0]])
