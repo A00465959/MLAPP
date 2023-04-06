@@ -2,6 +2,7 @@ import streamlit as st
 from joblib import load
 
 st.title("Iris Flower Species Predictor")
+st.write("-----------------------------------")
 LABELS = ['setosa', 'versicolor', 'virginica']
 
 clf = load("DT.joblib")
@@ -16,11 +17,9 @@ pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
 
 
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
+prediction = str(LABELS[prediction[0]]).upper()
 
-st.write("The Species of Iris Flower that has been identified is:" + str(LABELS[prediction[0]]).upper())
+st.write("The Species of Iris Flower that has been identified is:" + prediction) 
 
-st.write("Predicton History")
-st.write("------------------")
-for index, prediction in enumerate(prediction):
-	st.write(str((index))+". " + prediction)
+
 		
