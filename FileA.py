@@ -7,15 +7,19 @@ st.title("Iris Flower - Species Predictor")
 st.write("-----------------------------------")
 LABELS = ['Setosa', 'Versicolor', 'Virginica']
 
+
+
 clf = load("DT.joblib")
 
-sp_l = st.slider('sepal length (cm)', min_value=0, max_value=10)
+st.write("Please Enter the Details Of The Iris Flower:")
 
-sp_w = st.slider('sepal width (cm)', min_value=0, max_value=10)
+sp_l = st.slider('SEPAL LENGTH (in cm):', min_value=0, max_value=10)
 
-pe_l = st.slider('petal length (cm)', min_value=0, max_value=10)
+sp_w = st.slider('SEPAL WIDTH (in cm):', min_value=0, max_value=10)
 
-pe_w = st.slider('petal width (cm)', min_value=0, max_value=10)
+pe_l = st.slider('PETAL LENGTH (in cm):', min_value=0, max_value=10)
+
+pe_w = st.slider('PETAL WIDTH (in cm):', min_value=0, max_value=10)
 
 
 prediction = clf.predict([[sp_l, sp_w, pe_l, pe_w]])
