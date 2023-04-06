@@ -31,13 +31,14 @@ no_image = Image.open('no_image.png')
 
 if st.button("Click to Classify"):
 	st.write("-----------------------------------")
-    st.write("The Species of Iris Flower that has been identified is:")
-    if prediction == 'Setosa':
-        st.image(setosa)
-    elif prediction == 'Versicolor':
-        st.image(versicolor)
-    elif prediction == 'Virginica':
-        st.image(virginica)
-    else:
-        st.image(no_image)
-    st.write("-----------------------------------")
+	st.write("The Species of Iris Flower that has been identified is:")
+
+	if prediction == 'Setosa':
+		st.image(setosa)
+	elif prediction == 'Versicolor':
+		st.image(versicolor)
+	elif prediction == 'Virginica':
+		st.image(virginica)
+	else:
+		st.image(no_image)
+	st.write("-----------------------------------")
