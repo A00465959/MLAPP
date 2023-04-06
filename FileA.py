@@ -11,7 +11,9 @@ LABELS = ['Setosa', 'Versicolor', 'Virginica']
 
 clf = load("DT.joblib")
 
-st.write("Please Enter the Details Of The Iris Flower:")
+st.write("Please Enter The Below Details:")
+st.write("-----------------------------------")
+
 
 sp_l = st.slider('SEPAL LENGTH (in cm):', min_value=0, max_value=10)
 
