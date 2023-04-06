@@ -25,5 +25,5 @@ prediction_list.append(prediction)
 st.write("Predicton History")
 st.write("------------------")
 for index, prediction in enumerate(prediction_list):
-	st.write((index)+". " + prediction)
+	st.write(str((index))+". " + prediction)
 		
