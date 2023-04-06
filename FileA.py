@@ -3,7 +3,7 @@ from joblib import load
 from PIL import Image
 
 
-st.title("Iris Flower Species Predictor")
+st.title("Iris Flower - Species Predictor")
 st.write("-----------------------------------")
 LABELS = ['Setosa', 'Versicolor', 'Virginica']
 
@@ -29,9 +29,9 @@ no_image = Image.open('no_image.png')
 
 
 
-if st.button("Click Here to Classify"):
-    st.write("The Species of Iris Flower that has been identified is:") 
-    st.write(prediction)
+if st.button("Click to Classify"):
+	st.write("-----------------------------------")
+    st.write("The Species of Iris Flower that has been identified is:")
     if prediction == 'Setosa':
         st.image(setosa)
     elif prediction == 'Versicolor':
